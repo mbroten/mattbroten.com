@@ -1,11 +1,16 @@
 /* HTML5 Boilerplate  */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+
+header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background: #fff url(../img/ocean-beach.jpg) no-repeat top right; }
+h1#name { color: #eeeeee; margin:0px 0px 0px 10px; }
+h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; }
+
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #eeeeee}
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
