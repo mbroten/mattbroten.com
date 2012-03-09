@@ -94,7 +94,7 @@ td { vertical-align: top; }
 }
 
 header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background: #fff url(../img/ocean-beach.jpg) no-repeat top right; }
-h1#name { color: #eeeeee; margin:0px 0px 0px 10px; }
-h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; }
+h1#name { color: #eeeeee; margin:0px 0px 0px 10px; font-family: "cubano",sans-serif; }
+h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; font-family: "cubano",sans-serif; }
 div#copyright { text-align: center; }
 
