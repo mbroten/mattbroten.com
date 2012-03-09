@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site:
-  Twitter:
-  Location:
+  Full Stack Web Developer: Matt Broten
+  Site: http://mattbroten.com
+  Twitter: mattbroten
+  Location: San Francisco Bay Area
 
 /* THANKS */
   Names (& URL):
