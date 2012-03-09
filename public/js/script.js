@@ -5,12 +5,13 @@ $(function(){
   var $loadingIndicator = $('img#loading-indicator');
   var $target = $('article#main-target');
   var getContent = function(url){
-    $target.fadeOut('slow', function(){
-      $loadingIndicator.show();
-      $.get(url, function(data) {
-        $target.html(data);
-        $loadingIndicator.fadeOut('slow', function(){
-          $target.fadeIn('slow');
+    $target.fadeOut('fast', function(){
+      $loadingIndicator.fadeIn('fast', function(){
+        $.get(url, function(data){
+          $target.html(data);
+          $loadingIndicator.fadeOut('fast', function(){
+            $target.fadeIn('fast');
+          });
         });
       });
     });
