@@ -4,7 +4,7 @@ audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #eeeeee}
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #36393D}
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { font-size: 1em; line-height: 1.4; }
 html, body { margin: 0; padding: 0; height: 100%; }
@@ -94,26 +94,28 @@ td { vertical-align: top; }
   h2, h3 { page-break-after: avoid; }
 }
 
-.gradient {
-  background-color: #1a82f7;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2F2727), to(#1a82f7));
-  background-image: -webkit-linear-gradient(top, #2F2727, #1a82f7);
-  background-image: -moz-linear-gradient(top, #2F2727, #1a82f7);
-  background-image: -ms-linear-gradient(top, #2F2727, #1a82f7);
-  background-image: -o-linear-gradient(top, #2F2727, #1a82f7);
+div#container {
+  position:relative; /* needed for footer positioning */
+  margin:0 auto; /* center, not in IE5 */
+  width:800px;
+  height:auto !important; /* real browsers */
+  height:100%; /* IE6: treaded as min-height*/
+  min-height:100%; /* real browsers */
+  background: #eeeeee;
+  border:2px solid #000; 
 }
 
 header { 
-  width:800px; 
+  width:100%; 
   height:309px; 
   margin:0px auto 0px; 
-  border:1px solid #ccc; 
+  border:0px solid #ccc; 
   background-color: #000; 
 }
 header img#logo-image { display: none; position: relative; width: 100%; }
 header hgroup#logo-text {
    font-family: "cubano",sans-serif;
-   color: #eeeeee;
+   color: #BDBDBD;
    position: absolute;
    top: 0px;
    left: auto;
@@ -121,14 +123,8 @@ header hgroup#logo-text {
 header h1#name { margin: 0px 0px 0px 10px; }
 header h2#bio { margin: 229px 0px 0px 10px; vertical-align: bottom; }
 
-div#main { width: 100%; }
-div#main section#main-content { 
-  width: 800px; 
-  background-color: #eeeeee; 
-  margin:0px auto 0px; 
-  border:1px solid #ccc;
-}
-nav { text-align: center; border:1px solid #ccc; background-color: #000; }
+div#main { padding:0px 0px 20px; /* bottom padding for footer */ }
+nav { text-align: center; border:0px solid #ccc; background-color: #000; }
 
 img#loading-indicator {
   display: block; 
@@ -136,11 +132,11 @@ img#loading-indicator {
   margin-right: auto;
 }
 
-footer { width: 100%; }
-footer section#footer-content { 
-  width: 800px; 
+footer { 
+  width: 100%; 
   background-color: #000; 
-  margin:0px auto 0px; 
-  border:1px solid #ccc; 
+  border:0px solid #ccc; 
+  position:absolute;
+  bottom:0; /* stick to bottom */
 }
-footer section#footer-content section#copyright { text-align: center; color: #eeeeee;}
+footer div#copyright { text-align: center; color: #eeeeee;}
