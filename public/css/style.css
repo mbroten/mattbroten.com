@@ -108,23 +108,38 @@ div#container {
 header { 
   width:100%; 
   height:309px; 
-  margin:0px auto 0px; 
-  border:0px solid #ccc; 
   background-color: #000; 
 }
-header img#logo-image { display: none; position: relative; width: 100%; }
-header hgroup#logo-text {
-   font-family: "cubano",sans-serif;
-   color: #BDBDBD;
-   position: absolute;
-   top: 0px;
-   left: auto;
+header img#logo-image { 
+  display: none; 
+  position: relative; 
+  width: 100%; 
 }
-header h1#name { margin: 0px 0px 0px 10px; }
-header h2#bio { margin: 229px 0px 0px 10px; vertical-align: bottom; }
+header hgroup#logo-text {
+  font-family: "cubano", sans-serif;
+  width: 100%;
+}
+hgroup.final {
+  color: #000;
+}
+hgroup.initial {
+  color: #BDBDBD;
+}
+header h2#name { 
+  position: absolute;
+  top: 0px;
+  margin-top: 0px;
+  left: 10px;
+}
+header h2#bio { 
+  position: absolute;
+  top: 0px;
+  margin-top: 0px;
+  right: 10px;
+}
 
 div#main { padding:0px 0px 20px; /* bottom padding for footer */ }
-nav { text-align: center; border:0px solid #ccc; background-color: #000; }
+nav { text-align: center; background-color: #000; }
 
 img#loading-indicator {
   display: block; 
@@ -135,7 +150,6 @@ img#loading-indicator {
 footer { 
   width: 100%; 
   background-color: #000; 
-  border:0px solid #ccc; 
   position:absolute;
   bottom:0; /* stick to bottom */
 }

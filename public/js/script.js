@@ -33,10 +33,17 @@ $(function(){
   Backbone.history.start();
 
   var $logoImage = $('img#logo-image');
+  var $logoText = $('hgroup#logo-text')
   $logoImage.load(function(){
-     $logoImage.fadeIn(1000);
+    $logoImage.fadeIn(1000, function(){
+      $logoText.removeClass('initial');
+      $logoText.addClass('final'); 
+    });
   });
   if ($logoImage.prop('complete')){
-    $logoImage.fadeIn(1000);
+    $logoImage.fadeIn(1000, function(){
+      $logoText.removeClass('initial');
+      $logoText.addClass('final');  
+    });
   }
 });
