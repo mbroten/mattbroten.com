@@ -1,10 +1,4 @@
-/* HTML5 Boilerplate  */
-
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-
-header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background: #fff url(../img/ocean-beach.jpg) no-repeat top right; }
-h1#name { color: #eeeeee; margin:0px 0px 0px 10px; }
-h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; }
 
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
@@ -69,14 +63,6 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
-
-
-
-
-
-
-
-
 @media only screen and (min-width: 35em) {
   
 
@@ -106,3 +92,9 @@ td { vertical-align: top; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
+header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background: #fff url(../img/ocean-beach.jpg) no-repeat top right; }
+h1#name { color: #eeeeee; margin:0px 0px 0px 10px; }
+h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; }
+div#copyright { text-align: center; }
+
