@@ -7,6 +7,7 @@ audio:not([controls]) { display: none; }
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #eeeeee}
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
+html, body { height: 100%; }
 
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
@@ -93,8 +94,28 @@ td { vertical-align: top; }
   h2, h3 { page-break-after: avoid; }
 }
 
-header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background: #fff url(../img/ocean-beach.jpg) no-repeat top right; }
-h1#name { color: #eeeeee; margin:0px 0px 0px 10px; font-family: "cubano",sans-serif; }
-h2#bio { color: #eeeeee; margin:229px 0px 0px 10px; vertical-align: bottom; font-family: "cubano",sans-serif; }
-div#copyright { text-align: center; }
+.gradient {
+   background-color: #1a82f7;
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2F2727), to(#1a82f7));
+   background-image: -webkit-linear-gradient(top, #2F2727, #1a82f7);
+   background-image: -moz-linear-gradient(top, #2F2727, #1a82f7);
+   background-image: -ms-linear-gradient(top, #2F2727, #1a82f7);
+   background-image: -o-linear-gradient(top, #2F2727, #1a82f7);
+}
 
+header { width:800px; height:309px; margin:0 auto 10px; border:1px solid #ccc; background-color: #000; }
+header img#logo-image { display: none; position: relative; width: 100%; }
+header hgroup#logo-text {
+   font-family: "cubano",sans-serif;
+   color: #eeeeee;
+   position: absolute;
+   top: 0px;
+   left: auto;
+   width: 100%;
+}
+header h1#name { margin: 0px 0px 0px 10px; }
+header h2#bio { margin: 229px 0px 0px 10px; vertical-align: bottom; }
+
+footer { position: absolute; bottom: 0px; width: 100%; }
+footer section#content { width: 800px; background-color: #000; margin:0 auto; border:1px solid #ccc; }
+footer section#content section#copyright { text-align: center; color: #eeeeee;}
