@@ -150,8 +150,6 @@ nav a.selected { color: #828282; }
 
 article#main-target { padding: 10px 10px 10px 10px; }
 
-div#papers li a { font-size: small; }
-
 img#loading-indicator {
   display: block; 
   margin-left: auto; 
