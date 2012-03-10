@@ -119,12 +119,10 @@ header img#logo-image {
 header hgroup#logo-text {
   font-family: "cubano", sans-serif;
   width: 100%;
-}
-hgroup.final {
-  color: #000;
-}
-hgroup.initial {
-  color: #BDBDBD;
+  height: 35px;
+  position: absolute;
+  top: 0px;
+  color: #eeeeee;
 }
 header h2#name { 
   position: absolute;
@@ -171,3 +169,14 @@ footer div#copyright { text-align: center; color: #eeeeee;}
 .centered { text-align: center; }
 .nowrap { white-space: nowrap; }
 .pseudocode { font-size: small; }
+
+.alpha60 {
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(0, 0, 0) transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}

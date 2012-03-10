@@ -43,23 +43,11 @@ $(function(){
   Backbone.history.start();
 
   var $logoImage = $('img#logo-image');
-  var $logoText = $('hgroup#logo-text')
-  var animateLogoText = function(callback){
-    $logoText.fadeOut('slow', function(){
-      $logoText.removeClass('initial');
-      $logoText.addClass('final');
-      $logoText.fadeIn('fast', callback);     
-    });
-  };
   $logoImage.load(function(){
-    animateLogoText(function(){
-      $logoImage.fadeIn(1000)
-    });
+    $logoImage.fadeIn(1000)
   });
   if ($logoImage.prop('complete')){
-    animateLogoText(function(){
-      $logoImage.fadeIn(1000)
-    });
+    $logoImage.fadeIn(1000)
   }
 
   var $navLinks = $('nav a');
