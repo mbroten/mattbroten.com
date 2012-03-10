@@ -143,6 +143,8 @@ div#main { padding: 0px 0px 20px; /* bottom padding for footer */ }
 nav { text-align: center; background-color: #000; }
 article#main-target { padding: 10px 10px 10px 10px; }
 
+div#papers li a { font-size: small; }
+
 img#loading-indicator {
   display: block; 
   margin-left: auto; 
