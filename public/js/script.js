@@ -10,14 +10,16 @@ $(function(){
         $.get(url, function(data){
           $target.html(data);
           $loadingIndicator.fadeOut('fast', function(){
-            $target.fadeIn('fast');
+            $target.fadeIn('fast', function(){
+              $loadingIndicator.hide();
+            });
           });
         });
       });
     });
   };
   
-  var VALID_ACTIONS = ['/resume', '/papers'];
+  var VALID_ACTIONS = ['/resume', '/papers', '/philosophy'];
   var AppRouter = Backbone.Router.extend({
     routes: {
       "*actions": "defaultRoute"
