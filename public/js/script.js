@@ -19,7 +19,7 @@ $(function(){
     });
   };
   
-  var VALID_ACTIONS = ['/resume', '/papers', '/philosophy'];
+  var VALID_ACTIONS = ['/resume', '/papers', '/papers/philosophy4615'];
   var AppRouter = Backbone.Router.extend({
     routes: {
       "*actions": "defaultRoute"
