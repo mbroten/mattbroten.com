@@ -61,4 +61,10 @@ $(function(){
       $logoImage.fadeIn(1000)
     });
   }
+
+  var $navLinks = $('nav a');
+  $navLinks.click(function(){
+    $navLinks.removeClass();
+    $(this).addClass('selected');
+  });
 });

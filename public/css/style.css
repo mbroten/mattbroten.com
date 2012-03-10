@@ -12,11 +12,11 @@ html, body { margin: 0; padding: 0; height: 100%; }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
-a { color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
-a:hover, a:active { outline: 0; }
+a { color: #3D3D3D; text-decoration: none; border-bottom: 1px solid #3D3D3D; }
+a:visited { color: #3D3D3D; }
+a:hover { color: #3D3D3D; }
+a:focus { color: #3D3D3D; }
+a:active { color: #3D3D3D; }
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 blockquote { margin: 1em 40px; }
@@ -140,7 +140,16 @@ header h2#bio {
 }
 
 div#main { padding: 0px 0px 20px; /* bottom padding for footer */ }
+
 nav { text-align: center; background-color: #000; }
+nav a { color: #eeeeee; text-decoration: none; border-bottom: 0px solid #eeeeee; }
+nav a:active { color: #eeeeee; }
+nav a:visited { color: #eeeeee; }
+nav a:hover { color: #eeeeee; }
+nav a:focus { color: #eeeeee; }
+nav a:active { color: #eeeeee; }
+nav a.selected { color: #828282; }
+
 article#main-target { padding: 10px 10px 10px 10px; }
 
 div#papers li a { font-size: small; }
