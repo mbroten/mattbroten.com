@@ -1,0 +1,121 @@
+<h2 class="centered">A Discussion of Self-Organizing Maps as Presented by Teuvo Kohonen in "<a href="http://www.eicstes.org/EICSTES_PDF/PAPERS/The%20Self-Organizing%20Map%20(Kohonen).pdf"><span class="nowrap">The Self-Organizing Map</span></a>"</h2>
+<h3 class="centered">Authors: <a href="http://mattbroten.com">Matt Broten</a>, Tim Clifford</h3>
+<h4 class="centered">Completed for Math 5447 - Theoretical Neuroscience at the <a href="http://umn.edu"><span class="nowrap">University of Minnesota</span></a></h4>
+
+
+<h4>Introduction</h4>
+
+<p>
+"The Self-Organizing Map" by Teuvo Kohonen covers the basics of an artificial neural network known as a self-organizing map (SOM).
+</p>
+
+<p>
+SOMs are used to model data sets. A data set is a collection of data objects. Data objects are also referred to as input vectors. Each data object in a data set is a representation of a set of attributes. Each attribute associated with a data object represents a particular characteristic of an object. For example, attributes pertaining to data objects that are representations of strings of text could include the following: the presence of particular words within the text; the frequency of certain words; and whether certain words are present together. Data objects are typically implemented as an ordered list of values where each value represents a specific attribute; such lists of attribute values are referred to as vectors. It should also be noted here that the set of attributes used for a data object are the same across all data objects in the data set.
+</p>
+
+<p>
+A SOM is composed of a collection of neurons where each has a reference vector of the same number of dimensions as an input vector and a specific unchanging position in a grid of two or more dimensions. A neuron's immediate neighbors are determined by the shape of the cells within the grid. For example, when cells are rectangular, each neuron has four immediate neighbors; when cells are hexagonal, each neuron has six immediate neighbors. Both a neuron's position and reference vector play an important role in training of a SOM.
+</p>
+
+<p>
+SOMs are trained using an unsupervised learning process. A supervised learning method builds a model to map inputs to desired outputs using training samples that are coupled with correct output values. In contrast, an unsupervised learning process builds a model to fit the data set using training samples that do not have a correct output values associated with them. In the process of training a SOM the reference vectors are modified so each neuron becomes a detector of specific patterns in the data set. In a trained map a single neuron fires in response to an input (i.e. one neuron will give a stronger response than all other neurons). The training process ensures that similar inputs cause neurons in the same region of the map to fire. The end result of training is a spatially organized map of patterns found in the data set. When given an input, the location of the response reveals patterns that are strongly related to an input.
+</p>
+
+<h4>Self-Organizing Map Algorithm</h4>
+
+<p>
+There are two phases to SOMs. The first phase is the training phase. The second phase is the use of the map after it has been trained; this phase is often referred to as the testing phase. During the training phase each neuron's reference vector is adjusted to be more similar to specific training samples than any other neuron in the map, and each input becomes associated with a single neuron that best matches its attribute values. Once the map is trained, each input causes a single best matching neuron to fire. Also, in a trained map, nearby neurons are more closely related to each other than neurons that are further away.
+</p>
+
+<b>Initial setup:</b>
+
+<p>
+Input to the algorithm are data objects taken from a training data set. All data objects share the same set of attributes. Each data object is associated with a set of values for these attributes. As previously described, these values are stored in vector (i.e. an ordered list where the position in the list corresponds to a specific attribute). Attribute values can be continuous, discrete, or binary (or some combination) as long as the distance between vectors can be meaningfully determined. An example distance measured often used for vectors consisting of normalized continuous values is the Euclidean distance measure. The neurons are laid out in some spatial manner, where the location of a neuron in the map and the distance between any two neurons can be measured (e.g. a two dimensional grid). Each neuron also has a vector called a reference vector pertaining to the attributes associated with the data set.
+</p>
+
+<b>Training:</b>
+
+<p>
+    <ol>
+        <li>The neuron vectors are initialized to random values.</li>
+        <li>Loop:
+            <ol type='a'>
+                <li>Randomly select an input from the training set.</li>
+                <li>Measure the distance between each neuron's reference vector and the input's vector of attribute values.</li> 
+                <li>Select the neuron with the reference vector that is closest to the input's vector of attribute values.</li>
+                <li>Decrease the distance between the neuron and input by adjusting the attribute values of the neuron according to a learning rate function, so they are closer to the attributes values of the input.</li>
+                <li>Across a neighborhood range, decrease the distance between the reference vector of the neighboring neurons and the input in the same manner.</li>
+                <li>Once each input has a neuron it is uniquely closer to (i.e. no other neuron has a reference vector that is more similar), or some other test is satisfied: set done flag equal to true. Until done flag is equal to true.</li>
+            </ol>
+        </li>
+    </ol>
+</p>
+
+<p>Details:</p>
+
+<p>
+    <ol type="a" start="4">
+        <li>Initially, the algorithm adjusts each neuron's reference vector to be a lot closer to the input vector (e.g. half the distance), and as the iterations increase, the distance is decreased. Eventually, only minor adjustments are made (e.g. 1% of the distance). The exact rate at which a neuron's reference vector is adjusted is given by a learning rate function. Different functions can be experimented with for different training sets and map layouts.</li>
+        <li>The neighborhood range determines how many neighboring neurons are updated within some spatial distance of the selected neuron. Initially, the neighborhood should be quite large with respect to the dimensions of the map, and it should decrease as the iterations increase (e.g. in a two dimensional 100x100 grid, the neighborhood range could start as all neurons within 25 spots on the grid in any direction, and eventually decrease to all neurons within one spot in any direction, then finally to zero). The distance the neighboring neurons are adjusted should be less than the distance the selected neuron is adjusted. This allows relationships to show up without completely adjusting the other neurons so they are no longer tuned to the inputs they previously responded to. Also, neurons in the neighborhood that are further away from the selected neuron should be adjusted even less than the neurons that are closer.</li>
+    </ol>
+</p>
+
+<b>Use:</b>
+
+<p>
+Once the training is complete, each input will have one neuron associated with it that is closer to it than the other neurons are. When the map is given an input, the neuron that is closest to the input gives the strongest response.
+</p>
+
+<b>Algorithm Pseudocode:</b>
+
+<p>
+<div class="pseudocode">
+    <pre>
+    end = false 
+    do
+        Input X(t) 
+        set n_*(t) as minimum neuron (according to X(t) and N_i(t) for i = 1 to n)
+        for each neuron i
+            N_i(t+1) = N_i(t) - Alpha(t) * Beta(t, D_n(n_*(t), n_i)) * D_V(N_i(t), X(t))
+        t = t + 1 
+        if t mod num == 0
+            Update(t, alpha) 
+            Update(t, beta) 
+            if Test()
+                end = true
+    while !end
+    </pre>
+</div>
+</p>
+
+<p>
+<ul>
+    <li><code>t</code> is the time step during training, starting at one and increasing by one each iteration.</li>
+    <li><code>X(t)</code> is the input vector for training step <code>t</code>.</li>
+    <li><code>n_i</code> is neuron <code>i</code> where <code>i</code> is in the range one to <code>n</code>, and <code>n</code> is the number of neurons.</li>
+    <li><code>N_i(t)</code> is the vector assigned to neuron <code>i</code> at the beginning of step <code>t</code>.</li> 
+    <li><code>D_V(V_1, V_2)</code> is the distance between the attributes of vectors <code>V_1</code> and <code>V_2</code>.</li>
+    <li><code>D_n(n_1, n_2)</code> is the distance on the map between neurons <code>n_1</code> and <code>n_2</code>.</li>
+    <li><code>n_*(t)</code> is the neuron <code>n_i</code> who's <code>D_V(N_i(t), X(t))</code> is minimum over all neurons.</li>
+    <li><code>Alpha(t)</code> is the percent <code>N_*(t)</code> is changed to be closer to <code>X(t)</code> at step <code>t</code>.</li> 
+    <li><code>Beta(t, D_n(n_*(t), n_i))</code> is the percent <code>N_i(t)</code> is changed to be closer to <code>X(t)</code> at time step <code>t</code>, based on <code>n_i</code>'s distance from <code>n_*(t)</code>.</li>
+    <li><code>num</code> is the number of iterations that are done without updating and testing. 
+    <li><code>Update(t, alpha)</code> updates <code>alpha</code> percent based on time step <code>t</code>.</li>
+    <li><code>Update(t, beta)</code> updates <code>beta</code> percent rules based on time step <code>t</code>.</li> 
+    <li><code>Test()</code> goes through each input and tests if there is a unique neuron associated with it.</li>
+</ul>
+</p>
+
+<h4>Applications</h4>
+
+<p>
+In "The Self-Organizing Map" Kohonen gives the details of three example applications of SOMs. The first example he gives is the hierarchical clustering of abstract data. In this example the author used an artificial data set with implicitly defined hierarchical structures consisting of 32 data objects and five hypothetical attributes. During training, samples were taken randomly from the data set. Training was stopped when there was very little change in the reference vectors (i.e. the asymptotic state of the network was considered stationary). After the SOM was trained, the neurons were each given the label of the item they best matched. In the labeled version of the SOM, the hierarchical structures given by the data set were revealed.
+</p>
+
+<p>
+Kohonen also gives an example application where an SOM is used for speech recognition. In this example he gives the details of an SOM based phonetic typewriter which is able to identify phonemes in continuous speech. Training samples were formed from recorded speech by applying a seven step acoustic preprocessing procedure. The resulting samples were 15-component spectral vectors. The samples were presented to the SOM in the order given in the recorded speech. After the SOM was trained, it was fine tuned with a supervised training method using labeled training samples. The author found that the phonetic typewriter was suffering from coarticulation effects where the identification of a phoneme was being hampered by neighboring phonemes in the speech. To correct classification mistakes he introduced a postprocessing stage involving a self-learning grammar, referred to as a Dynamically Expanding Context. This procedure corrected up to 70% of the errors made by the original phonetic typewriter. In performance tests the phonetic typewriter without the postprocessing stage preformed at an accuracy of between 80 and 90%. With the addition of the postprocessing stage the phonetic typewriter exhibited an accuracy of between 92 and 97%.
+</p>
+
+<p>
+The last example given by Kohonen is the use of a SOM to create a semantic mapping of words from the context in which the words were found. The author first built meaningful three word sentences from a collection of words. From these sentences training samples were constructed in which the average context for a word was captured. After training the map clearly showed groupings of words corresponding to nouns, verbs, and adverbs. Within these groupings there were further groupings corresponding to the meaning of the words.
+</p>
