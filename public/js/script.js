@@ -19,6 +19,15 @@ $(function(){
     });
   };
   
+  var $navLinks = $('nav a');
+  var getNavLinkId = function(action){
+    return action.split('/')[1] + '-link';
+  };
+  var selectNavLink = function(navLinkId){
+    $navLinks.removeClass('selected');
+    $('nav a#'+navLinkId).addClass('selected');
+  };
+
   var VALID_ACTIONS = [
     '/resume', 
     '/papers',
@@ -32,11 +41,14 @@ $(function(){
       "*actions": "defaultRoute"
     },
     defaultRoute: function(action){
+      var navLinkId = 'home-link';
+      var url = '/home.html';
       if (_.include(VALID_ACTIONS, action)){
-        getContent(action + '.html');
-        return;
+        navLinkId = getNavLinkId(action);
+        url = action + '.html';
       }
-      getContent('/home.html');
+      selectNavLink(navLinkId);
+      getContent(url);
     }
   });
   var app_router = new AppRouter;
@@ -49,10 +61,4 @@ $(function(){
   if ($logoImage.prop('complete')){
     $logoImage.fadeIn(1000)
   }
-
-  var $navLinks = $('nav a');
-  $navLinks.click(function(){
-    $navLinks.removeClass();
-    $(this).addClass('selected');
-  });
 });
