@@ -158,3 +158,4 @@ footer {
 footer div#copyright { text-align: center; color: #eeeeee;}
 
 .centered { text-align: center; }
+.nowrap { white-space: nowrap; }
