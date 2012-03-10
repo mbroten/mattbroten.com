@@ -4,7 +4,7 @@ audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #828282; overflow-y: scroll; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: #D9D9D9; overflow-y: scroll; }
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { font-size: 1em; line-height: 1.4; }
 html, body { margin: 0; padding: 0; height: 100%; }
