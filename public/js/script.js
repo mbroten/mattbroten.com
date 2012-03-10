@@ -35,16 +35,21 @@ $(function(){
 
   var $logoImage = $('img#logo-image');
   var $logoText = $('hgroup#logo-text')
-  $logoImage.load(function(){
-    $logoImage.fadeIn(1000, function(){
+  var animateLogoText = function(callback){
+    $logoText.fadeOut('slow', function(){
       $logoText.removeClass('initial');
-      $logoText.addClass('final'); 
+      $logoText.addClass('final');
+      $logoText.fadeIn('fast', callback);     
+    });
+  };
+  $logoImage.load(function(){
+    animateLogoText(function(){
+      $logoImage.fadeIn(1000)
     });
   });
   if ($logoImage.prop('complete')){
-    $logoImage.fadeIn(1000, function(){
-      $logoText.removeClass('initial');
-      $logoText.addClass('final');  
+    animateLogoText(function(){
+      $logoImage.fadeIn(1000)
     });
   }
 });

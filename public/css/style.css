@@ -140,6 +140,7 @@ header h2#bio {
 
 div#main { padding:0px 0px 20px; /* bottom padding for footer */ }
 nav { text-align: center; background-color: #000; }
+article#main-target { text-align: center; }
 
 img#loading-indicator {
   display: block; 
