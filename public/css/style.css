@@ -138,9 +138,9 @@ header h2#bio {
   right: 10px;
 }
 
-div#main { padding:0px 0px 20px; /* bottom padding for footer */ }
+div#main { padding: 0px 0px 20px; /* bottom padding for footer */ }
 nav { text-align: center; background-color: #000; }
-article#main-target { text-align: center; }
+article#main-target { padding: 10px 10px 10px 10px; }
 
 img#loading-indicator {
   display: block; 
@@ -155,3 +155,5 @@ footer {
   bottom:0; /* stick to bottom */
 }
 footer div#copyright { text-align: center; color: #eeeeee;}
+
+.centered { text-align: center; }
