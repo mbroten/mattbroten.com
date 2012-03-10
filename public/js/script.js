@@ -21,7 +21,8 @@ $(function(){
   
   var VALID_ACTIONS = [
     '/resume', 
-    '/papers', 
+    '/papers',
+    '/papers/psychology3051', 
     '/papers/philosophy4615',
     '/papers/math5447'
   ];
