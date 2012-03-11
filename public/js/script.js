@@ -55,10 +55,11 @@ $(function(){
   Backbone.history.start();
 
   var $logoImage = $('img#logo-image');
-  $logoImage.load(function(){
-    $logoImage.fadeIn(1000)
-  });
+  var fadeInHeaderImage = function(){
+    $logoImage.fadeIn(1000);
+  };
+  $logoImage.load(fadeInHeaderImage);
   if ($logoImage.prop('complete')){
-    $logoImage.fadeIn(1000)
+    fadeInHeaderImage();
   }
 });
