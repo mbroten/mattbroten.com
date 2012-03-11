@@ -155,7 +155,7 @@ nav a:focus { color: #eeeeee; }
 nav a:active { color: #eeeeee; }
 nav a.selected { color: #828282; }
 
-article#main-target { padding: 30px 30px 30px 30px; }
+article#main-target { padding: 15px 30px 30px 30px; }
 
 img#loading-indicator {
   display: block; 
