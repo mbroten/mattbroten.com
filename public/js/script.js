@@ -62,4 +62,32 @@ $(function(){
   if ($logoImage.prop('complete')){
     fadeInHeaderImage();
   }
+
+  var DESCRIPTIONS = [
+    'Full Stack Web Developer', 
+    'Open Source Enthusiast',
+    'Early Adopter', 
+    'Avid Reader', 
+    'Live Music Addict', 
+    'Tyro Surfer/Skater', 
+    'Free Spirit'
+  ];
+  var DESCRIPTIONS_LENGTH = DESCRIPTIONS.length;
+  var $bio = $('h4#bio');
+  var setDescription = function(i){
+    if (i === DESCRIPTIONS_LENGTH){
+      i = 0;
+    }
+    $bio.fadeOut(1500, function(){
+      $bio.text(DESCRIPTIONS[i]);
+      $bio.fadeIn(1500, function(){
+        setTimeout(function(){
+          setDescription(i + 1);
+        }, 2000);
+      })
+    });
+  };
+  setTimeout(function(){
+    setDescription(1);
+  }, 2000);
 });
