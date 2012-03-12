@@ -81,16 +81,16 @@ $(function(){
     if (i === DESCRIPTIONS_LENGTH){
       i = 0;
     }
-    $bio.fadeOut(1500, function(){
+    $bio.fadeOut(2000, function(){
       $bio.text(DESCRIPTIONS[i]);
-      $bio.fadeIn(1500, function(){
+      $bio.fadeIn(2000, function(){
         setTimeout(function(){
           setDescription(i + 1);
-        }, 2000);
+        }, 3000);
       })
     });
   };
   setTimeout(function(){
     setDescription(1);
-  }, 2000);
+  }, 3000);
 });
