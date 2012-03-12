@@ -62,6 +62,9 @@ $(function(){
   if ($logoImage.prop('complete')){
     fadeInHeaderImage();
   }
+  $logoImage.click(function(){
+    $logoImage.fadeOut(1000, fadeInHeaderImage);
+  });
 
   var DESCRIPTIONS = [
     'Full Stack Web Developer', 
