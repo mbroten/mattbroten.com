@@ -1,0 +1,18 @@
+img.project {
+  width: 100px;
+  height: 100px;
+  padding-bottom: 5px;
+}
+
+div.project {
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+
+div.project-description {
+  padding-top: 5px;
+}
+
+a.image-link {
+  border-bottom: 0px;
+}
