@@ -34,7 +34,8 @@ $(function(){
     '/papers/cscl1101',
     '/papers/psychology3051', 
     '/papers/philosophy4615',
-    '/papers/math5447'
+    '/papers/math5447',
+    '/projects'
   ];
   var AppRouter = Backbone.Router.extend({
     routes: {
